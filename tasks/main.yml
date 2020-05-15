@@ -37,7 +37,7 @@
     permissions: "{{ item.permissions | default(omit) }}"
   when:
     - acl_apply_defaults
-    - item.default | default('false')
+    - item.default | default(false)
   loop: "{{ acl_acls }}"
   loop_control:
     label: "{{ item.path }}"
