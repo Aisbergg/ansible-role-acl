@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2020-05-28
+### Fixed
+- Clean up
+
 ## [1.0.1] - 2020-05-15
 ### Fixed
 - Value type
