@@ -5,6 +5,19 @@
     name: acl
     state: present
 
+- name: Create directories if requested to do so
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode | default(omit) }}"
+    owner: "{{ item.owner | default(omit) }}"
+    group: "{{ item.group | default(omit) }}"
+    recurse: true
+  when: item.create_dir | default(false) | bool
+  loop: "{{ acl_acls }}"
+  loop_control:
+    label: "{{ item.path }}"
+
 - name: Manage ACLs
   tags: acl
   acl:
